@@ -1,0 +1,61 @@
+<div class="flex justify-center mt-6">
+  <button (click)="requestBluetoothDevice()" type="button" class="rounded-md bg-indigo-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+    Buscar Dispositivos Bluetooth
+  </button>
+</div>
+
+<div *ngIf="measures.length > 0" class="my-4">
+  <h3 class="text-base font-semibold leading-6 text-gray-900">Conexión actual</h3>
+  <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-6">
+    <div class="col-span-3 overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-gray-500">Medidas realizadas</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{ measures.length }}</dd>
+    </div>
+    <div class="col-span-3 overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-gray-500">Valor actual</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{ measures[measures.length - 1].measure }}</dd>
+    </div>
+    <div class="col-span-2 overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-gray-500">Valor medio</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{ getAverageValue() }}</dd>
+    </div>
+    <div class="col-span-2 overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-gray-500">Medida Máxima</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{ getMaximumValue() }}</dd>
+    </div>
+    <div class="col-span-2 overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
+      <dt class="truncate text-sm font-medium text-gray-500">Medida Mínima</dt>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{ getMinimunValue() }}</dd>
+    </div>
+  </dl>
+</div>
+
+<div class="flex justify-center items-center gap-2 my-4" *ngIf="display_chart">
+  <button (click)="changeMeasureStatus()" type="button" class="rounded-md bg-indigo-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+    {{ measure_status ==='active' ? 'Detener medición' : 'Reanudar medición' }}
+  </button>
+  
+  <button (click)="clearMeasures()" type="button" class="rounded-md bg-red-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+    Borrar datos
+  </button>
+
+  <button (click)="saveCSV()" type="button" class="rounded-md bg-green-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500">
+    Guardar CSV
+  </button>
+
+</div>
+
+<div *ngIf="display_chart && chart_options.series[0].data.length">
+  <apx-chart #chart
+    [series]="chart_options.series"
+    [chart]="chart_options.chart"
+    [dataLabels]="chart_options.dataLabels"
+    [markers]="chart_options.markers"
+    [title]="chart_options.title"
+    [fill]="chart_options.fill"
+    [yaxis]="chart_options.yaxis"
+    [xaxis]="chart_options.xaxis"
+    [tooltip]="chart_options.tooltip"
+    [autoUpdateSeries]="true"
+  ></apx-chart>
+</div>

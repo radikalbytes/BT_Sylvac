@@ -1,0 +1,55 @@
+{
+  "hash": "f47000d7",
+  "configHash": "f3cb290c",
+  "lockfileHash": "56a694ca",
+  "browserHash": "84ec2f87",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "fb2f5d86",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "68887c46",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "20033ac0",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "c474e2e3",
+      "needsInterop": false
+    },
+    "ng-apexcharts": {
+      "src": "../../../../../node_modules/ng-apexcharts/fesm2022/ng-apexcharts.mjs",
+      "file": "ng-apexcharts.js",
+      "fileHash": "57f4008f",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-F6SGJV5E": {
+      "file": "chunk-F6SGJV5E.js"
+    },
+    "chunk-XQEDOEW3": {
+      "file": "chunk-XQEDOEW3.js"
+    },
+    "chunk-MIXZ5AD7": {
+      "file": "chunk-MIXZ5AD7.js"
+    },
+    "apexcharts.common-6QQO52NR": {
+      "file": "apexcharts__common-6QQO52NR.js"
+    },
+    "chunk-WKYGNSYM": {
+      "file": "chunk-WKYGNSYM.js"
+    }
+  }
+}
